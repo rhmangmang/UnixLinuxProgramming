@@ -18,13 +18,17 @@ int main () {
 
 int get_response (char* question) {
     printf("%s(y/n)?", question);
+    int input;
     while (1) {
-        switch (getchar()) {
+        switch (input = getchar()) {
             case 'y':
             case 'Y': return 0;
             case 'n':
             case 'N':
             case EOF: return 1;
+            default:
+                      printf("\ncannot understand %c, ", input);
+                      printf("Please type y or no \n");
         }
     }
 }
